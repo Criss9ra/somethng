@@ -1,63 +1,180 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Mejor Hack Para Minecraft de ItsDarexMc</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+    <title>Amethyst Client | High Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Generales */
+        :root {
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.4);
+            --bg: #050505;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #f8fafc;
+        }
+
         body {
-            background-color: #000000; /* Fondo Negro */
-            color: #ffffff;           /* Texto Blanco */
-            font-family: 'Montserrat', sans-serif; /* Aplicar Montserrat */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Compact Hero section to bring video up */
+        .hero {
+            padding-top: 60px;
+            padding-bottom: 30px; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            height: 100vh;           /* Centra el contenido verticalmente */
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e1033 0%, #050505 100%);
+        }
+
+        .logo {
+            width: 90px;
+            filter: drop-shadow(0 0 15px var(--accent));
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
             margin: 0;
+            letter-spacing: -2px;
         }
 
-        /* Estilo del Botón Verde */
-        .btn-verde {
-            background-color: #5A0096; /* Color morado */
-            color: white;
-            padding: 15px 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;        /* Texto en negrita */
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;      /* Bordes redondeados */
-            cursor: pointer;
-            text-decoration: none;   /* Quita el subrayado del enlace */
-            transition: background-color 0.3s ease; /* Efecto suave al pasar el mouse */
+        h1 span {
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Cambio de color al pasar el mouse (Hover) */
-        .btn-verde:hover {
-            background-color: #5A0090; /* Un verde un poco más oscuro */
+        .developer-credit {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin: 10px 0 30px 0;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        /* Quitar estilo de enlace azul predeterminado */
-        a {
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 10px;
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        /* Pulse animation for the Download button */
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 20px -5px var(--accent-glow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(139, 92, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -5px var(--accent);
+            animation: none;
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: white;
+            border-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Showcase Section sits right under the buttons */
+        .showcase {
+            width: 90%;
+            max-width: 850px;
+            margin-bottom: 50px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            padding-bottom: 30px;
+            font-size: 0.8rem;
+            color: #475569;
         }
     </style>
 </head>
 <body>
 
-    <h1>Amethyst Client</h1>
-    <p>by ItsDarexMC<p>
-    <p>Haz clic en el botón de abajo para iniciar la descarga.</p>
+    <main class="hero">
+        <img src="https://criss-sites.my.canva.site/amethyst-client/_assets/media/1e0401baadddaae34e7e97ad16286016.png" alt="Logo" class="logo">
+        
+        <h1>Amethyst <span>Client</span></h1>
+        <p class="developer-credit">Developed by <strong>ItsDarexMC</strong></p>
 
-    <a href="C:\Users\Cristopher\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\EE62341D4761B859DF62EDA705133453070564B8\transfers\2026-10\amethyst-client-6.7.0.jar.zip" download="ItsDarexMC_Minecraft_Hack">
-        <button type="button" class="btn-verde">
-            Descargar
-        </button>
-    </a>
+        <div class="btn-group">
+            <a href="https://work.ink/2m5S/amethystClient" class="btn btn-primary" target="_blank">Download Now</a>
+            
+            <a href="http://discord.gg/fG88mm4yDZ" class="btn btn-secondary" target="_blank">Discord</a>
+            <a href="https://www.youtube.com/channel/UCrzQ2zmFBKBOELiShfxgaoQ" class="btn btn-secondary" target="_blank">YouTube</a>
+            <a href="https://tiktok.com/@itsdarexmc" class="btn btn-secondary" target="_blank">TikTok</a>
+        </div>
+    </main>
+
+    <section class="showcase">
+        <div class="video-wrapper">
+            <video controls autoplay muted loop>
+                <source src="https://criss-sites.my.canva.site/amethyst-client/_assets/video/e0c15585b131d321eeed583ad185bb00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Amethyst Client. All rights reserved.
+    </footer>
 
 </body>
 </html>
